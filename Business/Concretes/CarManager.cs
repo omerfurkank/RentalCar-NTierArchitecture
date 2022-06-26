@@ -11,46 +11,46 @@ namespace Business.Concretes
 {
     public class CarManager : ICarService
     {
-        ICarDal dal;
+        ICarDal _dal;
 
         public CarManager(ICarDal dal)
         {
-            this.dal = dal;
+            this._dal = dal;
         }
 
         public void Add(Car car)
         {
-            dal.Add(car);
+            _dal.Add(car);
         }
 
         public void Delete(Car car)
         {
-            dal.Delete(car);
+            _dal.Delete(car);
         }
 
         public List<Car> GetAll()
         {
-           return dal.GetList();
+           return _dal.GetList();
         }
 
         public List<Car> GetAllByBrandId(int id)
         {
-            return dal.GetList(p=>p.BrandId == id);
+            return _dal.GetList(p=>p.BrandId == id);
         }
 
         public List<Car> GetAllByColorId(int id)
         {
-            return dal.GetList(p => p.ColorId == id);
+            return _dal.GetList(p => p.ColorId == id);
         }
 
         public Car GetById(int id)
         {
-            return dal.Get(p=>p.Id == id);
+            return _dal.Get(p=>p.Id == id);
         }
 
         public void Update(Car car)
         {
-            dal.Update(car);
+            _dal.Update(car);
         }
     }
 }
