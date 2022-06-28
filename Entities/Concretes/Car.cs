@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Entities.Concretes
@@ -15,8 +16,11 @@ namespace Entities.Concretes
         public int ModelYear { get; set; }
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
-        public Brand Brand { get; set; }
-        public Color Color { get; set; }
-        public ICollection<Rental> Rentals { get; set; }
+        [JsonIgnore]
+        public Brand? Brand { get; set; }
+        [JsonIgnore]
+        public Color? Color { get; set; }
+        [JsonIgnore]
+        public List<Rental>? Rentals { get; set; } = new();
     }
 }
