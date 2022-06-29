@@ -48,7 +48,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.Brand", b =>
@@ -65,7 +65,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.Car", b =>
@@ -98,7 +98,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("ColorId");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Cars", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.Color", b =>
@@ -115,7 +115,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Colors");
+                    b.ToTable("Colors", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.Rental", b =>
@@ -144,7 +144,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Rentals");
+                    b.ToTable("Rentals", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Concretes.Customer", b =>
