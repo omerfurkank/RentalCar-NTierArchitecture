@@ -1,5 +1,6 @@
 ﻿using Business.Abstracts;
 using Entities.Concretes;
+using Entities.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,9 @@ namespace WebApi.Controllers
             _service = service;
         }
         [HttpGet("getall")]
-        public List<Car> GetAll()
+        public List<GetCarDto> GetAll()
         {
-           return _service.GetAll();
+            return _service.GetAllDetails();
         }
         [HttpPost("add")]
         public void Add(Car car)

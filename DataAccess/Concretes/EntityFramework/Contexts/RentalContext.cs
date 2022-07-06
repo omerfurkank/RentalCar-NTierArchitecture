@@ -1,4 +1,4 @@
-﻿using Core.Entities;
+﻿using Core.CrossCuttingConcerns.Security.Entities;
 using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,6 +21,8 @@ namespace DataAccess.Concretes.EntityFramework.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Rental> Rentals { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>().ToTable("Customers");

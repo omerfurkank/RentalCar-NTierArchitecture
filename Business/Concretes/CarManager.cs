@@ -4,6 +4,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Validation;
 using DataAccess.Abstracts;
 using Entities.Concretes;
+using Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,9 @@ namespace Business.Concretes
             return _dal.Get(p=>p.Id == id);
         }
 
-       
+        public List<GetCarDto> GetAllDetails()
+        {
+            return _dal.GetCarDetails();
+        }
     }
 }

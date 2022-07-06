@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Business.Abstracts;
+using Business.BusinessRules;
 using Business.Concretes;
 using Castle.DynamicProxy;
+using Core.CrossCuttingConcerns.Security.Jwt;
 using Core.Utilities.Interceptors;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
@@ -28,6 +30,8 @@ namespace Business.DependencyResolves.Autofac
             builder.RegisterType<EfColorDal>().As<IColorDal>();
             builder.RegisterType<EfBrandDal>().As<IBrandDal>();
             builder.RegisterType<EfCustomerDal>().As<ICustomerDal>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+            builder.RegisterType<CarBusinessRules>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
