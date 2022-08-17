@@ -6,7 +6,7 @@ namespace Core.CrossCuttingConcerns.Security.Encryption
     {
         public static SigningCredentials CreateSigningCredentials(SecurityKey security)
         {
-            return new SigningCredentials(security, SecurityAlgorithms.HmacSha256Signature);
+            return new SigningCredentials(security, SecurityAlgorithms.HmacSha512Signature);
         }
     }
 }

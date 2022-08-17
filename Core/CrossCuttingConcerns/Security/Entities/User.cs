@@ -17,6 +17,6 @@ namespace Core.CrossCuttingConcerns.Security.Entities
         public byte[] PasswordSalt { get; set; }
         public byte[] PasswordHash { get; set; }
         public bool Status { get; set; }
-        public List<OperationClaim>? OperationClaims { get; set; }
+        public virtual List<OperationClaim>? OperationClaims { get; set; } = new ();
     }
 }

@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
-using Core.CrossCuttingConcerns.Security.Extensions;
+using Core.Extensions;
 
 namespace Core.CrossCuttingConcerns.Security.Jwt
 {

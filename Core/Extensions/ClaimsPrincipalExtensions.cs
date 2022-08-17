@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Core.CrossCuttingConcerns.Security.Extensions
+namespace Core.Extensions
 {
     public static class ClaimsPrincipalExtensions
     {
@@ -10,7 +10,7 @@ namespace Core.CrossCuttingConcerns.Security.Extensions
             return result;
         }
 
-        public static List<string> ClaimRoles(this ClaimsPrincipal claimsPrincipal)
+        public static List<string> GetClaimRoles(this ClaimsPrincipal claimsPrincipal)
         {
             return claimsPrincipal?.Claims(ClaimTypes.Role);
         }

@@ -6,7 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.CrossCuttingConcerns.Security.Extensions
+namespace Core.Extensions
 {
     public static class ClaimExtensions
     {
