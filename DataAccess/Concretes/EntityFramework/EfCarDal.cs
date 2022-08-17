@@ -18,20 +18,20 @@ namespace DataAccess.Concretes.EntityFramework
         {
             using (RentalContext context = new RentalContext())
             {
-                var result = from c in context.Cars
-                             join b in context.Brands
-                             on c.BrandId equals b.Id
-                             join cl in context.Colors
-                             on c.ColorId equals cl.Id
-                             select new GetCarDto
-                             {
-                                 Id = c.Id,
-                                 Description = c.Description,
-                                 Brand = b.Name,
-                                 Color = cl.Name,
-                                 DailyPrice = c.DailyPrice
-                             };
-                return result.ToList();
+                var list = context.Cars.Include(c => c.Brand).Include(c=>c.Color).ToList();
+                List<GetCarDto> result = new List<GetCarDto>();
+                foreach (var car in list)
+                {
+                    result.Add(new GetCarDto()
+                    {
+                        Brand = car.Brand.Name,
+                        Color = car.Color.Name,
+                        DailyPrice = car.DailyPrice,
+                        Description = car.Description,
+                        ModelYear = car.ModelYear
+                    });
+                }
+                return result;
             }
         }
     }

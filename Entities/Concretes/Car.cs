@@ -16,11 +16,8 @@ namespace Entities.Concretes
         public int ModelYear { get; set; }
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
-        [JsonIgnore]
-        public Brand? Brand { get; set; }
-        [JsonIgnore]
-        public Color? Color { get; set; }
-        [JsonIgnore]
+        public virtual Brand Brand { get; set; }
+        public Color Color { get; set; }
         public List<Rental>? Rentals { get; set; } = new();
     }
 }

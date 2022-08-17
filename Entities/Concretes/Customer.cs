@@ -10,9 +10,7 @@ namespace Entities.Concretes
 {
     public class Customer:User
     {
-        public int Id { get; set; }
         public string CompanyName { get; set; }
-        [JsonIgnore]
-        public List<Rental>? Rentals { get; set; } = new();
+        public virtual List<Rental>? Rentals { get; set; } = new();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using Business.BusinessAspect.Autofac;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using System;
@@ -17,7 +18,7 @@ namespace Business.Concretes
         {
             _dal = dal;
         }
-
+        //[SecuredOperation("admin")]
         public void Add(Brand brand)
         {
             _dal.Add(brand);

@@ -5,7 +5,6 @@ using Business.Concretes;
 using Business.DependencyResolves.Autofac;
 using Core.CrossCuttingConcerns.Security.Encryption;
 using Core.CrossCuttingConcerns.Security.Jwt;
-using Core.DependencyResolves;
 using Core.Extensions;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
@@ -36,7 +35,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
         };
     });
-builder.Services.AddDependencyResolvers(new CoreModule());
+builder.Services.AddDependencyResolvers();
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacBusinessModule()));
