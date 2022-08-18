@@ -18,7 +18,7 @@ namespace Business.Concretes
         {
             _dal = dal;
         }
-        //[SecuredOperation("admin")]
+        [SecuredOperation("admin")]
         public void Add(Brand brand)
         {
             _dal.Add(brand);

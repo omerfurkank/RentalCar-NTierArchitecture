@@ -15,7 +15,7 @@ namespace Core.Extensions
         {
             services.AddMemoryCache();
             //services.AddSingleton<ICacheManager, MemoryCacheManager>();
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddSingleton<Stopwatch>();
 
             return ServiceTool.Create(services);
