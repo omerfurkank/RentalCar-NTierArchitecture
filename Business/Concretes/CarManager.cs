@@ -1,5 +1,6 @@
 ﻿using Business.Abstracts;
 using Business.BusinessAspect.Autofac;
+using Business.BusinessRules;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Validation;
@@ -17,15 +18,19 @@ namespace Business.Concretes
     public class CarManager : ICarService
     {
         ICarDal _dal;
+        CarBusinessRules _carBusinessRules;
 
-        public CarManager(ICarDal dal)
+        
+        public CarManager(ICarDal dal,CarBusinessRules carBusinessRules)
         {
             _dal = dal;
+            _carBusinessRules = carBusinessRules;
         }
         [SecuredOperation("admin")]
         [ValidationAspect(typeof(CarValidator))]
         public void Add(Car car)
         {
+            _carBusinessRules.CheckIfCarNameExists(car.Description);
             _dal.Add(car);
         }
         public void Update(Car car)

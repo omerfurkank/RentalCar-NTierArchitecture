@@ -6,26 +6,26 @@ namespace Business.Concretes
 {
     public class UserManager : IUserService
     {
-        IUserDal _userDal;
+        IUserDal _dal;
 
         public UserManager(IUserDal userDal)
         {
-            _userDal = userDal;
+            _dal = userDal;
         }
 
         public List<OperationClaim> GetClaims(User user)
         {
-            return _userDal.GetClaims(user);
+            return _dal.GetClaims(user);
         }
 
         public void Add(User user)
         {
-            _userDal.Add(user);
+            _dal.Add(user);
         }
 
         public User GetByMail(string email)
         {
-            return _userDal.Get(u => u.Email == email);
+            return _dal.Get(u => u.Email == email);
         }
     }
 }
